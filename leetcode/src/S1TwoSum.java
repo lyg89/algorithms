@@ -6,10 +6,10 @@ import java.util.Map;
  * @author: liyaguang
  * @create: 2018-09-21 13:10
  **/
-public class TwoSum {
+public class S1TwoSum {
 
     public static void main(String[] args) {
-        int[] r = new TwoSum().twoSum(new int[]{11, 15, 2, 7}, 9);
+        int[] r = new S1TwoSum().twoSum(new int[]{11, 15, 2, 7}, 9);
         for (int i = 0; i < r.length; i++) {
             System.out.println(r[i]);
         }
