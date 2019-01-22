@@ -1,7 +1,7 @@
 package selection;
 
 /**
- * @description:
+ * @description: bubble sort algorithms
  * @author: liyaguang
  * @create: 2018-12-03 13:16
  **/
