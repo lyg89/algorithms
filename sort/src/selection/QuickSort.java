@@ -1,7 +1,7 @@
 package selection;
 
 /**
- * @description:
+ * @description: quick sort method
  * @author: liyaguang
  * @create: 2018-12-03 13:26
  **/

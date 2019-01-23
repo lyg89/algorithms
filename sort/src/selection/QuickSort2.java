@@ -1,12 +1,18 @@
+package selection;
+
 import java.util.Arrays;
 
+/**
+ * @author liyaguang
+ */
 public class QuickSort2 {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         int[] arrOriginal = new int[]{5, 9, 7, 4, 22, 2, 65, 1, 45};
         System.out.println("before sort, the arr is: ");
         System.out.println(Arrays.toString(arrOriginal));
 
-        quickSortProcess(arrOriginal, 0, arrOriginal.length-1);
+        quickSortProcess(arrOriginal, 0, arrOriginal.length - 1);
         System.out.println("end sort, the arr is: ");
         System.out.println(Arrays.toString(arrOriginal));
         // 1. 选择轴值
@@ -21,7 +27,7 @@ public class QuickSort2 {
     }
 
     public static void quickSortProcess(int[] arr, int startIdx, int endIdx) {
-        if (startIdx >= endIdx){
+        if (startIdx >= endIdx) {
             return;
         }
         // 1. 选择轴值
@@ -32,14 +38,14 @@ public class QuickSort2 {
         int forwardIdx = startIdx;
         int reverseIdx = endIdx;
 
-        while(forwardIdx < reverseIdx) {
+        while (forwardIdx < reverseIdx) {
 
-            while(forwardIdx < reverseIdx && arr[forwardIdx] < flagValue){
+            while (forwardIdx < reverseIdx && arr[forwardIdx] < flagValue) {
                 forwardIdx++;
             }
             switchVal(arr, forwardIdx, reverseIdx);
 
-            while(forwardIdx < reverseIdx && arr[reverseIdx] > flagValue){
+            while (forwardIdx < reverseIdx && arr[reverseIdx] > flagValue) {
                 reverseIdx--;
             }
             switchVal(arr, forwardIdx, reverseIdx);
@@ -48,10 +54,10 @@ public class QuickSort2 {
         // quickSortProcess(arr, startIdx, endIdx/2);
         // quickSortProcess(arr, (endIdx/2 + 1), endIdx);
         quickSortProcess(arr, startIdx, forwardIdx);
-        quickSortProcess(arr, forwardIdx+1, endIdx);
+        quickSortProcess(arr, forwardIdx + 1, endIdx);
     }
 
-    public static void switchVal(int[] arr, int i, int j){
+    public static void switchVal(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
