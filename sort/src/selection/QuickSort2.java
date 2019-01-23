@@ -23,7 +23,7 @@ public class QuickSort2 {
         // 正向从起始元素开始，遇到比轴值大的元素时，与反向指针元素交换位置，正向指针暂停，break；否则正向+1
         // 反向从结束元素开始，遇。。。。小。。。。，。正。。。。。。。。。，反向指针暂停，break；。。反向-1
 
-        // 二分，递归调用
+        // 3. 二分，递归调用
     }
 
     public static void quickSortProcess(int[] arr, int startIdx, int endIdx) {
