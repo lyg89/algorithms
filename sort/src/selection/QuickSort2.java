@@ -33,7 +33,7 @@ public class QuickSort2 {
         // 1. 选择轴值
         int flagIndex = (startIdx + endIdx) / 2;
         int flagValue = arr[flagIndex];
-        switchVal(arr, flagIndex, endIdx);
+        Utils.switchVal(arr, flagIndex, endIdx);
 
         int forwardIdx = startIdx;
         int reverseIdx = endIdx;
@@ -43,24 +43,18 @@ public class QuickSort2 {
             while (forwardIdx < reverseIdx && arr[forwardIdx] < flagValue) {
                 forwardIdx++;
             }
-            switchVal(arr, forwardIdx, reverseIdx);
+            Utils.switchVal(arr, forwardIdx, reverseIdx);
 
             while (forwardIdx < reverseIdx && arr[reverseIdx] > flagValue) {
                 reverseIdx--;
             }
-            switchVal(arr, forwardIdx, reverseIdx);
+            Utils.switchVal(arr, forwardIdx, reverseIdx);
         }
 
         // quickSortProcess(arr, startIdx, endIdx/2);
         // quickSortProcess(arr, (endIdx/2 + 1), endIdx);
         quickSortProcess(arr, startIdx, forwardIdx);
         quickSortProcess(arr, forwardIdx + 1, endIdx);
-    }
-
-    public static void switchVal(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 
 }

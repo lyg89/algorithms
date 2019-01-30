@@ -1,3 +1,9 @@
+package selection;
+
+/**
+ * max heap data structure
+ * @author liyaguang
+ */
 public class Heap {
     private int heapSize;
     public int getHeapSize(){

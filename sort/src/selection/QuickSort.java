@@ -42,7 +42,7 @@ public class QuickSort {
         int pivotValue = arr[pivot];
 
         // 交换轴值与数组结尾位置变量
-        switchArrayValue(arr, pivot, endIdx);
+        Utils.switchVal(arr, pivot, endIdx);
 
         int lIdx = startIdx;
         int rIdx = endIdx;
@@ -73,12 +73,6 @@ public class QuickSort {
         // 这里一定是轴值坐标吗？
         arr[lIdx] = pivotValue;
         return lIdx;
-    }
-
-    public static void switchArrayValue(int[] arr, int index1, int index2) {
-        int tmp = arr[index1];
-        arr[index1] = arr[index2];
-        arr[index2] = tmp;
     }
 
     private static int selectPivot(int startIndex, int endIndex) {

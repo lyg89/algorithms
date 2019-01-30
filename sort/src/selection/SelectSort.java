@@ -1,3 +1,5 @@
+package selection;
+
 import java.util.Arrays;
 
 /**
@@ -13,7 +15,7 @@ public class SelectSort {
         System.out.println("before select sort, the array is: ");
         System.out.println(Arrays.toString(arrOriginal));
 
-        int smallestIdx = 0;
+        int smallestIdx;
         for (int i = 0; i < arrOriginal.length - 1; i++) {
             smallestIdx = i;
 
@@ -23,15 +25,9 @@ public class SelectSort {
                 }
             }
             
-            switchVal(arrOriginal, i, smallestIdx);
+            Utils.switchVal(arrOriginal, i, smallestIdx);
         }
         System.out.println("\nend select sort, the array is: ");
         System.out.println(Arrays.toString(arrOriginal));
-    }
-
-    public static void switchVal(int[] arr, int i, int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 }

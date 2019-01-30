@@ -1,9 +1,15 @@
+package selection;
+
 import java.util.Arrays;
 
-
+/**
+ * heap sort algorithm
+ *
+ * @author liyaguang
+ */
 public class HeapSort {
-    
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
 
         int[] arr = new int[]{5, 9, 7, 4, 22, 2, 65, 1, 45};
         System.out.println("before select sort, the array is: ");
@@ -19,7 +25,6 @@ public class HeapSort {
             heap.setHeapSize(heap.getHeapSize() - 1);
             heap.maxHeapify(arr, 0);
         }
-        
 
         System.out.println("\nend heap sort, the array is: ");
         System.out.println(Arrays.toString(arr));
