@@ -1,4 +1,4 @@
-package selection;
+package comparison;
 
 import java.util.Arrays;
 

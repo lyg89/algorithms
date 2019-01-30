@@ -1,4 +1,4 @@
-package selection;
+package comparison;
 
 /**
  * sort algorithm use tools

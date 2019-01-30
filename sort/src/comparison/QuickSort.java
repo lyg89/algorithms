@@ -1,4 +1,4 @@
-package selection;
+package comparison;
 
 /**
  * @description: quick sort method

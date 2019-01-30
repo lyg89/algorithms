@@ -1,4 +1,4 @@
-package selection;
+package comparison;
 
 /**
  * max heap data structure
