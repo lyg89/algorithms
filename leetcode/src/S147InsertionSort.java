@@ -33,6 +33,7 @@ public class S147InsertionSort {
                 if (iPre != null) {
                     iPre.next = current;
                 } else {
+                    // i is the first value, then modify head reference
                     head = current;
                 }
                 current = pre.next;
