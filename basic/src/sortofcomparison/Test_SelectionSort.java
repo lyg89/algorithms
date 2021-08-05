@@ -1,4 +1,6 @@
-package comparison;
+package sortofcomparison;
+
+import common.Utils;
 
 import java.util.Arrays;
 
@@ -7,7 +9,7 @@ import java.util.Arrays;
  * @author: liyaguang
  * @create: 2018-12-03 13:26
  **/
-public class SelectSort {
+public class Test_SelectionSort {
 
     public static void main(String[] args) {
 

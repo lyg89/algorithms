@@ -1,4 +1,4 @@
-package comparison;
+package sortofcomparison;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author: liyaguang
  * @create: 2018-12-12 12:54
  **/
-public class MergeSort {
+public class Test_MergeSort {
 
     public static void main(String[] args) {
         int[] result = mergeSort(new int[]{1, 3, 4, 6, 2, 5, 7, 9, 8});

@@ -1,4 +1,6 @@
-package comparison;
+package sortofcomparison;
+
+import common.Utils;
 
 /**
  * @description: quick sort method

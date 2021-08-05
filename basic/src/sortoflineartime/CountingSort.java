@@ -1,4 +1,4 @@
-package linear_time_sort;
+package sortoflineartime;
 
 import java.util.Arrays;
 

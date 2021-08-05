@@ -1,4 +1,4 @@
-package comparison;
+package sortofcomparison;
 
 import java.util.Arrays;
 

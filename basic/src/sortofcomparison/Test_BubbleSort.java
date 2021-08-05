@@ -1,4 +1,4 @@
-package comparison;
+package sortofcomparison;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author: liyaguang
  * @create: 2018-12-03 13:16
  **/
-public class BubbleSort {
+public class Test_BubbleSort {
 
     public static void main(String[] args) {
         int[] arrOriginal = new int[]{5, 9, 7, 4, 22, 2, 65, 1, 45};
