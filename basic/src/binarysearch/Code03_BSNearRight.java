@@ -7,10 +7,10 @@ import java.util.Arrays;
  * @author: Flash
  * @create: 2021-08-05 16:25
  **/
-public class Code02_BSNearLeft {
+public class Code03_BSNearRight {
 
     /**
-     * 在arr上，找满足>=value的最左位置
+     * 在arr上，找满足<=value的最右位置
      *
      * @param arr
      * @param value
@@ -26,25 +26,25 @@ public class Code02_BSNearLeft {
         int left = 0;
         int right = arr.length - 1;
         int mid;
-        while (left < right) {
+        while (left <= right) {
 
             mid = left + ((right - left) >> 1);
 
-            if (arr[mid] >= value) {
+            if (arr[mid] <= value) {
                 nearestIdx = mid;
-                right = mid - 1;
-            } else {
-                // arr[mid] < value
                 left = mid + 1;
+            } else {
+                // arr[mid] > value
+                right = mid - 1;
             }
         }
-        return arr[left] >= value ? left : nearestIdx;
+        return nearestIdx;
     }
 
     // for test
     public static int test(int[] arr, int value) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] >= value) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] <= value) {
                 return i;
             }
         }
