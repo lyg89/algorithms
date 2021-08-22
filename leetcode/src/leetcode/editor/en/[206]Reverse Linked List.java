@@ -1,4 +1,4 @@
-//Reverse a singly linked list. 
+package leetcode.editor.en;//Reverse a singly linked list.
 //
 // Example: 
 //
@@ -45,6 +45,15 @@ class Solution {
             }
         }
         return pre;
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
