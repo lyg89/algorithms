@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author: liyaguang
  * @create: 2019-02-25 19:27
  **/
-public class CountingSort {
+public class CountSort2 {
 
     public static void main(String[] args) {
         //int[] arr = new int[]{1, 3, 3, 2, 2, 4, 1};
