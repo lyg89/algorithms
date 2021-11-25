@@ -9,6 +9,7 @@ public class RadixSort {
         if (arr == null || arr.length < 2) {
             return;
         }
+        // 获取数组中最大元素的位数
         radixSort(arr, 0, arr.length - 1, maxbits(arr));
     }
 
@@ -42,10 +43,16 @@ public class RadixSort {
         }
     }
 
-    public static int getDigit(int num, int bit) {
+    /**
+     * 得到num数值在d位上的具体值
+     * @param num
+     * @param d
+     * @return
+     */
+    public static int getDigit(int num, int d) {
         final int radix = 10;
-        if (bit > 1) {
-            num /= (Math.pow(radix, (bit - 1)));
+        if (d > 1) {
+            num /= (Math.pow(radix, (d - 1)));
         }
 
         num %= radix;
