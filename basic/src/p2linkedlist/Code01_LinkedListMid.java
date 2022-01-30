@@ -1,4 +1,4 @@
-package p02;
+package p2linkedlist;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package p02;
+package p2linkedlist;
 
 public class Code03_PartitionList {
 
