@@ -3,6 +3,7 @@ package p3binarytree;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class Code05_SerializeAndReconstructTree {
@@ -128,19 +129,59 @@ public class Code05_SerializeAndReconstructTree {
         System.out.println("test begin");
         for (int i = 0; i < testTimes; i++) {
             Node head = generateRandomBST(maxLevel, maxValue);
-            printTree(head);
+
             Queue<String> pre = preSerial(head);
-            System.out.println(pre);
-            //Queue<String> pos = posSerial(head);
+            Queue<String> pos = posSerial(head);
             //Queue<String> level = levelSerial(head);
             Node preBuild = buildByPreQueue(pre);
-            //Node posBuild = buildByPosQueue(pos);
+            Node posBuild = buildByPosQueue(pos);
             //Node levelBuild = buildByLevelQueue(level);
             //if (!isSameValueStructure(preBuild, posBuild) || !isSameValueStructure(posBuild, levelBuild)) {
-            //    System.out.println("Oops!");
-            //}
+            if (!isSameValueStructure(preBuild, posBuild)) {
+                System.out.println("Oops!");
+            }
         }
         System.out.println("test finish!");
 
+    }
+
+    private static Node buildByPosQueue(Queue<String> pos) {
+        if (pos == null || pos.size() == 0) {
+            return null;
+        }
+        Stack<String> stack = new Stack<>();
+        while (!pos.isEmpty()) {
+            stack.push(pos.poll());
+        }
+        return posBuild(stack);
+    }
+
+    private static Node posBuild(Stack<String> stack) {
+        String pop = stack.pop();
+        if (pop == null) {
+            return null;
+        }
+
+
+        Node newNode = generateNode(pop);
+        newNode.right = posBuild(stack);
+        newNode.left = posBuild(stack);
+        return newNode;
+    }
+
+    private static Queue<String> posSerial(Node head) {
+        Queue<String> ans = new LinkedList<>();
+        posSerialProcess(head, ans);
+        return ans;
+    }
+
+    private static void posSerialProcess(Node node, Queue<String> queue) {
+        if (node == null) {
+            queue.add(null);
+            return;
+        }
+        posSerialProcess(node.left, queue);
+        posSerialProcess(node.right, queue);
+        queue.add(String.valueOf(node.value));
     }
 }
