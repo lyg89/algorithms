@@ -52,6 +52,7 @@ public class Code05_SerializeAndReconstructTree {
         return head;
     }
 
+
     public static Node generateNode(String val) {
         if (val == null) {
             return null;
@@ -125,24 +126,130 @@ public class Code05_SerializeAndReconstructTree {
     public static void main(String[] args) {
         int maxLevel = 5;
         int maxValue = 100;
-        int testTimes = 10;
+        int testTimes = 100;
         System.out.println("test begin");
         for (int i = 0; i < testTimes; i++) {
             Node head = generateRandomBST(maxLevel, maxValue);
 
             Queue<String> pre = preSerial(head);
             Queue<String> pos = posSerial(head);
-            //Queue<String> level = levelSerial(head);
+
+            Queue<String> level = levelSerial(head);
             Node preBuild = buildByPreQueue(pre);
             Node posBuild = buildByPosQueue(pos);
-            //Node levelBuild = buildByLevelQueue(level);
-            //if (!isSameValueStructure(preBuild, posBuild) || !isSameValueStructure(posBuild, levelBuild)) {
-            if (!isSameValueStructure(preBuild, posBuild)) {
+
+            Node levelBuild = buildByLevelQueue(level);
+            if (!isSameValueStructure(preBuild, posBuild) || !isSameValueStructure(posBuild, levelBuild)) {
+                //if (!isSameValueStructure(preBuild, posBuild)) {
                 System.out.println("Oops!");
             }
         }
         System.out.println("test finish!");
 
+    }
+
+    private static Node buildByLevelQueue(Queue<String> levelList) {
+        Queue<Node> queue = new LinkedList<>();
+        Node head = generateNode(levelList.poll());
+        if (head != null) {
+            queue.add(head);
+        }
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            node.left = generateNode(levelList.poll());
+            node.right = generateNode(levelList.poll());
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+        return head;
+    }
+
+    private static Queue<String> levelSerial(Node head) {
+        Queue<String> ans = new LinkedList<>();
+        if (head == null) {
+            ans.add(null);
+            return ans;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(head);
+        ans.add(String.valueOf(head.value));
+        while (!queue.isEmpty()) {
+            Node poll = queue.poll();
+            if (poll.left != null) {
+                ans.add(String.valueOf(poll.left.value));
+                queue.add(poll.left);
+            } else {
+                ans.add(null);
+            }
+            if (poll.right != null) {
+                ans.add(String.valueOf(poll.right.value));
+                queue.add(poll.right);
+            } else {
+                ans.add(null);
+            }
+        }
+        return ans;
+    }
+
+    //private static Queue<String> inSerial(Node head) {
+    //    Queue<String> ans = new LinkedList<>();
+    //    inSerialProcess(head, ans);
+    //    return ans;
+    //}
+    //
+    //private static void inSerialProcess(Node node, Queue<String> ans) {
+    //    if (node == null) {
+    //        ans.add(null);
+    //        return;
+    //    }
+    //    inSerialProcess(node.left, ans);
+    //    ans.add(String.valueOf(node.value));
+    //    inSerialProcess(node.right, ans);
+    //}
+    //
+    //private static Node buildByInQueue(Queue<String> pos) {
+    //    if (pos == null || pos.size() == 0) {
+    //        return null;
+    //    }
+    //    return inBuild(pos);
+    //}
+    //
+    //private static Node inBuild(Queue<String> queue) {
+    //    String poll = queue.poll();
+    //    if (poll == null) {
+    //        return null;
+    //    }
+    //
+    //    Node left = generateNode(poll);
+    //    Node newNode = inBuild(queue);
+    //    Node right = inBuild(queue);
+    //
+    //    if (newNode != null) {
+    //        newNode.left = left;
+    //        newNode.right = right;
+    //    }
+    //
+    //    return newNode;
+    //}
+
+    private static Queue<String> posSerial(Node head) {
+        Queue<String> ans = new LinkedList<>();
+        posSerialProcess(head, ans);
+        return ans;
+    }
+
+    private static void posSerialProcess(Node node, Queue<String> queue) {
+        if (node == null) {
+            queue.add(null);
+            return;
+        }
+        posSerialProcess(node.left, queue);
+        posSerialProcess(node.right, queue);
+        queue.add(String.valueOf(node.value));
     }
 
     private static Node buildByPosQueue(Queue<String> pos) {
@@ -167,21 +274,5 @@ public class Code05_SerializeAndReconstructTree {
         newNode.right = posBuild(stack);
         newNode.left = posBuild(stack);
         return newNode;
-    }
-
-    private static Queue<String> posSerial(Node head) {
-        Queue<String> ans = new LinkedList<>();
-        posSerialProcess(head, ans);
-        return ans;
-    }
-
-    private static void posSerialProcess(Node node, Queue<String> queue) {
-        if (node == null) {
-            queue.add(null);
-            return;
-        }
-        posSerialProcess(node.left, queue);
-        posSerialProcess(node.right, queue);
-        queue.add(String.valueOf(node.value));
     }
 }
