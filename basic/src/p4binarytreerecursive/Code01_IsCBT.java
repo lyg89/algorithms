@@ -20,7 +20,7 @@ public class Code01_IsCBT {
     }
 
     public static boolean isCBT1(Node head) {
-        if (head  == null) {
+        if (head == null) {
             return true;
         }
         Queue<Node> queue = new LinkedList<>();
@@ -41,13 +41,13 @@ public class Code01_IsCBT {
                 return false;
             }
             //if (!leafCheck && (l == null || r == null)){
-            if (l == null || r == null){
+            if (l == null || r == null) {
                 leafCheck = true;
             }
             if (l != null) {
                 queue.add(l);
             }
-            if (r!= null) {
+            if (r != null) {
                 queue.add(r);
             }
         }
@@ -74,8 +74,34 @@ public class Code01_IsCBT {
         }
     }
 
-    public static Info process(Node X) {
-        return new Info(true, true, 0);
+    public static Info process(Node xNode) {
+        if (xNode == null) {
+            return new Info(true, true, 0);
+        }
+        Info leftInfo = process(xNode.left);
+        Info rightInfo = process(xNode.right);
+
+        int height = Math.max(leftInfo.height, rightInfo.height) + 1;
+        boolean isFull = leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height;
+        boolean isCBT = false;
+        if (isFull) {
+            isCBT = true;
+        } else if (leftInfo.isCBT && rightInfo.isCBT) {
+
+            if (!leftInfo.isFull && rightInfo.isFull && leftInfo.height - rightInfo.height == 1) {
+                isCBT = true;
+            } else if (
+                    leftInfo.isFull && rightInfo.isFull && leftInfo.height - rightInfo.height == 1
+            ) {
+                isCBT = true;
+            } else if (
+                    leftInfo.isFull && !rightInfo.isFull && leftInfo.height == rightInfo.height
+            ) {
+                isCBT = true;
+            }
+        }
+
+        return new Info(isFull, isCBT, height);
     }
 
     // for test
