@@ -8,7 +8,7 @@ import java.util.HashSet;
  * @author liyaguang11
  * @date 2022/2/14
  */
-public class Code08_lowestAncestor {
+public class Code08_LowestAncestor {
 
     public static class Node {
         public int value;
