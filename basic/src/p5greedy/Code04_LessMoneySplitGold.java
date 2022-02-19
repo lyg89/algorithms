@@ -19,8 +19,29 @@ public class Code04_LessMoneySplitGold {
     // 等待合并的数都在arr里，pre之前的合并行为产生了多少总代价
     // arr中只剩一个数字的时候，停止合并，返回最小的总代价
     public static int process(int[] arr, int pre) {
+        if (arr.length == 1) {
+            return pre;
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                ans = Math.min(ans, process(copyAndMergeTwo(arr, i, j), pre + arr[i] + arr[j]));
+            }
+        }
+        return ans;
+    }
 
-        return 0;
+
+    public static int[] copyAndMergeTwo(int[] arr, int i, int j) {
+        int[] ans = new int[arr.length - 1];
+        int ansIdx = 0;
+        for (int arrIdx = 0; arrIdx < arr.length; arrIdx++) {
+            if (arrIdx != i && arrIdx != j) {
+                ans[ansIdx++] = arr[arrIdx];
+            }
+        }
+        ans[ansIdx] = arr[i] + arr[j];
+        return ans;
     }
 
 
