@@ -1,6 +1,5 @@
 package p5greedy;
 
-import javax.jnlp.ClipboardService;
 import java.util.HashSet;
 
 /**
