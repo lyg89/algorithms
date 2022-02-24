@@ -1,24 +1,24 @@
-package sortofcomparison;
+package p1sortandsearch.sortofcomparison;
 
 import java.util.Arrays;
 
 import static common.Utils.*;
 
 /**
- * @description: bubble sort
+ * @description:
  * @author: Flash
- * @create: 2021-08-05 12:00
+ * @create: 2021-08-05 12:21
  **/
-public class Code02_BubbleSort {
+public class Code03_InsertionSort {
 
-    private static void bubbleSort(int[] arr) {
+    private static void insertionSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int e = arr.length - 1; e > 0; e--) {
-            for (int i = 0; i < e; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    swapValue(arr, i, i + 1);
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    swapValue(arr, j, j - 1);
                 }
             }
         }
@@ -42,7 +42,7 @@ public class Code02_BubbleSort {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = Arrays.copyOf(arr1, arr1.length);
-            bubbleSort(arr1);
+            insertionSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
@@ -53,7 +53,7 @@ public class Code02_BubbleSort {
 
         int[] arr = generateRandomArray(maxSize, maxValue);
         printArray(arr);
-        bubbleSort(arr);
+        insertionSort(arr);
         printArray(arr);
     }
 }

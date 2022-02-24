@@ -1,4 +1,4 @@
-package sortofcomparison;
+package p1sortandsearch.sortofcomparison;
 
 public class Code08_Heap {
 

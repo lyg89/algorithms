@@ -1,8 +1,7 @@
-package sortofcomparison;
+package p1sortandsearch.sortofcomparison;
 
 import static common.Utils.generateRandomArray;
 import static common.Utils.printArray;
-import static sortofcomparison.Code06_MergeSortForSmallSum.copyArray;
 
 /**
  * @description: 数组中的逆序对- <url> https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/ </url>
@@ -79,7 +78,7 @@ public class Code05_MergeSortForReversePairs {
         System.out.println("测试开始");
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
-            int[] arr2 = copyArray(arr1);
+            int[] arr2 = Code06_MergeSortForSmallSum.copyArray(arr1);
             if (reversePairs(arr1) != comparator(arr2)) {
                 System.out.println("Oops!");
                 printArray(arr1);

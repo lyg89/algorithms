@@ -1,4 +1,4 @@
-package sortofcomparison;
+package p1sortandsearch.sortofcomparison;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -14,7 +14,7 @@ public class Code09_HeapSort {
         //    heapInsert(arr, i);
         //}
 
-        // 从底部构建堆，最后一层元素因为无法下沉，因此复杂度为O(1)，然后逐层向上底层，但要下沉的数量逐层减少，因此复杂度为 O(n)
+        // 从底部构建堆，最后一层元素因为无法下沉，因此复杂度为O(1)，然后逐层向上，但要下沉的数量逐层减少，因此复杂度为 O(n)
         for (int i = arr.length - 1; i >= 0; i--) {
             heapify(arr, i, arr.length);
         }

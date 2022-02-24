@@ -1,4 +1,4 @@
-package binarysearch;
+package p1sortandsearch.binarysearch;
 
 /**
  * @description: <url>https://leetcode-cn.com/problems/find-peak-element/</url>

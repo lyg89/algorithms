@@ -1,4 +1,4 @@
-package sortoflineartime;
+package p1sortandsearch.sortoflineartime;
 
 import java.util.Arrays;
 

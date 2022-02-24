@@ -1,4 +1,4 @@
-package binarysearch;
+package p1sortandsearch.binarysearch;
 
 public class BSTest {
 

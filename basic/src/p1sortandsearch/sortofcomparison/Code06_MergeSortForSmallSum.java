@@ -1,4 +1,4 @@
-package sortofcomparison;
+package p1sortandsearch.sortofcomparison;
 
 import static common.Utils.generateRandomArray;
 import static common.Utils.printArray;

@@ -1,28 +1,26 @@
-package sortofcomparison;
+package p1sortandsearch.sortofcomparison;
 
 import java.util.Arrays;
 
 import static common.Utils.*;
 
 /**
- * @description: selection sort for practice
+ * @description: bubble sort
  * @author: Flash
- * @create: 2021-08-05 11:36
+ * @create: 2021-08-05 12:00
  **/
-public class Code01_SelectionSort {
+public class Code02_BubbleSort {
 
-    private static void selectionSort(int[] arr) {
+    private static void bubbleSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+        for (int e = arr.length - 1; e > 0; e--) {
+            for (int i = 0; i < e; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    swapValue(arr, i, i + 1);
                 }
             }
-            swapValue(arr, i, minIndex);
         }
     }
 
@@ -32,11 +30,9 @@ public class Code01_SelectionSort {
         arr[j] = tmp;
     }
 
-    // ================ for test start ================
     private static void comparator(int[] arr) {
         Arrays.sort(arr);
     }
-
 
     public static void main(String[] args) {
         int testTime = 500000;
@@ -46,20 +42,18 @@ public class Code01_SelectionSort {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = Arrays.copyOf(arr1, arr1.length);
-            selectionSort(arr1);
+            bubbleSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
-                printArray(arr1);
-                printArray(arr2);
                 break;
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 
-        int[] arr = generateRandomArray(5, 10);
+        int[] arr = generateRandomArray(maxSize, maxValue);
         printArray(arr);
-        selectionSort(arr);
+        bubbleSort(arr);
         printArray(arr);
     }
 }

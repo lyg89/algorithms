@@ -1,4 +1,4 @@
-package binarysearch;
+package p1sortandsearch.binarysearch;
 
 import java.util.ArrayList;
 import java.util.Arrays;

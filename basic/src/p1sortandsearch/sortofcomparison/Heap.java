@@ -1,4 +1,4 @@
-package sortofcomparison;
+package p1sortandsearch.sortofcomparison;
 
 import common.Utils;
 
