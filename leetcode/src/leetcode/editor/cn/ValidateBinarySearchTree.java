@@ -68,7 +68,7 @@ class Solution {
         return process(root).isBST;
     }
 
-    private static Info process(TreeNode node) {
+    private Info process(TreeNode node) {
         if (node == null) {
             return null;
         }
@@ -95,7 +95,7 @@ class Solution {
         return new Info(isBST, min, max);
     }
 
-    private static class Info {
+    private class Info {
         private boolean isBST;
         private int min;
         private int max;

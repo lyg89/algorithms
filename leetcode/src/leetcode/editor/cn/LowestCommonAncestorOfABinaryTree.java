@@ -117,7 +117,7 @@ public class LowestCommonAncestorOfABinaryTree {
             return new Info(lowestCommonAncestor, findP, findQ);
         }
 
-        private static class Info {
+        private class Info {
             private TreeNode lowestCommonAncestor;
             private boolean findP;
             private boolean findQ;

@@ -89,7 +89,7 @@ public class CheckCompletenessOfABinaryTree {
             return process(root).isCBT;
         }
 
-        public static class Info {
+        public class Info {
             public boolean isFull;
             public boolean isCBT;
             public int height;
@@ -101,7 +101,7 @@ public class CheckCompletenessOfABinaryTree {
             }
         }
 
-        public static Info process(TreeNode xNode) {
+        public Info process(TreeNode xNode) {
             if (xNode == null) {
                 return new Info(true, true, 0);
             }
