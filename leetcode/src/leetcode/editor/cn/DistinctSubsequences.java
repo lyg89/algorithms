@@ -48,8 +48,6 @@
 package leetcode.editor.cn;
 
 
-import java.util.ArrayList;
-
 public class DistinctSubsequences {
     public static void main(String[] args) {
         Solution solution = new DistinctSubsequences().new Solution();
