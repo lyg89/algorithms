@@ -30,6 +30,29 @@ public class Code06_Knapsack {
         return Math.max(no, yes);
     }
 
+    private static int dpWay1(int[] w, int[] v, int bag) {
+        if (w.length == 0) {
+            return 0;
+        }
+        int n = w.length;
+        int[][] dp = new int[n + 1][bag + 1];
+
+        // dp[n][x] = 0 initialize with the java create array
+        for (int index = n-1; index >=0; index--) {
+            for (int rest = 0; rest <= bag; rest++) {
+                int no = dp[index+1][rest];
+                int yes = -1;
+                if (rest - w[index] >= 0) {
+                    yes = dp[index + 1][rest - w[index]] + v[index];
+                }
+                dp[index][rest] = Math.max(no, yes);
+            }
+
+        }
+
+        return dp[0][bag];
+    }
+
     public static int dpWay(int[] w, int[] v, int bag) {
         int N = w.length;
         if (N == 0) {
@@ -58,5 +81,6 @@ public class Code06_Knapsack {
         int bag = 15;
         System.out.println(maxValue(weights, values, bag));
         System.out.println(dpWay(weights, values, bag));
+        System.out.println(dpWay1(weights, values, bag));
     }
 }
