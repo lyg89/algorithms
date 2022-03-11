@@ -4,7 +4,7 @@ package p8recursive_and_dp;
  * @author liyaguang11
  * @date 2022/3/10
  */
-public class Code10_CommonSubString {
+public class Code10_LongestCommonSubsequence {
 
     public static int commonSubString(String text1, String text2) {
         if (text1.isEmpty() || text2.isEmpty()) {
