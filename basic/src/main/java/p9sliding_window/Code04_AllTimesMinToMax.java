@@ -8,6 +8,8 @@ import java.util.Stack;
  */
 public class Code04_AllTimesMinToMax {
 
+    private static int max;
+
     public static int max1(int[] arr) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
@@ -30,20 +32,24 @@ public class Code04_AllTimesMinToMax {
         for (int i = 1; i < arr.length; i++) {
             sums[i] = sums[i - 1] + arr[i];
         }
+
         int max = Integer.MIN_VALUE;
         Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < arr.length; i++) {
-            // 找到 i 的右侧，第一个比i大的元素停止。
             while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
-                //Integer R = stack.pop();
-                //max = Math.max(max, (sums[i - 1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[i]);
+                Integer cur = stack.pop();
+
+                int curRes = (sums[i-1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[cur];
+                max = Math.max(curRes, max);
             }
             stack.push(i);
         }
         while (!stack.isEmpty()) {
-            //Integer R = stack.pop();
-            //max = Math.max(max, (sums[R - 1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[R]);
+            Integer cur = stack.pop();
+
+            int curRes = (sums[arr.length-1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[cur];
+            max = Math.max(curRes, max);
         }
         return max;
     }
