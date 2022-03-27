@@ -48,7 +48,14 @@ public class Code01_FibonacciProblem {
         return matrixPower[0][0] + matrixPower[1][0];
     }
 
+    /**
+     * get matrix power result
+     * @param m
+     * @param p
+     * @return
+     */
     private static int[][] matrixPower(int[][] m, int p) {
+        // res init with unit matrix
         int[][] res = new int[m.length][m[0].length];
         for (int i = 0; i < res.length; i++) {
             res[i][i] = 1;
@@ -64,7 +71,12 @@ public class Code01_FibonacciProblem {
         return res;
     }
 
-    // 两个矩阵乘完之后的结果返回
+    /**
+     * get two matrix multiply result
+     * @param m1
+     * @param m2
+     * @return
+     */
     public static int[][] multiplyMatrix(int[][] m1, int[][] m2) {
         int[][] res = new int[m1.length][m2[0].length];
         for (int i = 0; i < m1.length; i++) {
