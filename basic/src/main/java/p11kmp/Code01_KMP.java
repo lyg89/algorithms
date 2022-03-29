@@ -25,17 +25,19 @@ public class Code01_KMP {
     }
 
     public static int[] getNextArray(char[] match){
-        if (match.length == 1) {
-            return new int[] { -1 };
+        if (match == null || match.length == 0) {
+            return new int[]{};
         }
         int[] next = new int[match.length];
         next[0] = -1;
-        next[1] = 0;
+        if (match.length > 1) {
+            next[1] = 0;
+        }
+
         int i = 2;
-        // cn代表，cn位置的字符，是当前和i-1位置比较的字符
         int cn = 0;
-        while (i < next.length) {
-            if (match[i - 1] == match[cn]) { // 跳出来的时候
+        while (i < match.length) {
+            if (match[i - 1] == match[cn]) {
                 next[i++] = ++cn;
             } else if (cn > 0) {
                 cn = next[cn];
