@@ -8,8 +8,6 @@ import java.util.Stack;
  */
 public class Code04_AllTimesMinToMax {
 
-    private static int max;
-
     public static int max1(int[] arr) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
@@ -40,7 +38,7 @@ public class Code04_AllTimesMinToMax {
             while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
                 Integer cur = stack.pop();
 
-                int curRes = (sums[i-1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[cur];
+                int curRes = (sums[i - 1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[cur];
                 max = Math.max(curRes, max);
             }
             stack.push(i);
@@ -48,7 +46,7 @@ public class Code04_AllTimesMinToMax {
         while (!stack.isEmpty()) {
             Integer cur = stack.pop();
 
-            int curRes = (sums[arr.length-1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[cur];
+            int curRes = (sums[arr.length - 1] - (stack.isEmpty() ? 0 : sums[stack.peek()])) * arr[cur];
             max = Math.max(curRes, max);
         }
         return max;

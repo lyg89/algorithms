@@ -6,6 +6,41 @@ package p10fibonacci;
  */
 public class Code02_ZeroLeftOneStringNumber {
 
+    public static int getNum1(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        return process(1, n);
+    }
+
+    public static int process(int i, int n) {
+        if (i == n - 1) {
+            return 2;
+        }
+        if (i == n) {
+            return 1;
+        }
+        return process(i + 1, n) + process(i + 2, n);
+    }
+
+    public static int getNum2(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        int pre = 1;
+        int cur = 1;
+        int tmp;
+        for (int i = 2; i < n + 1; i++) {
+            tmp = cur;
+            cur += pre;
+            pre = tmp;
+        }
+        return cur;
+    }
+
     public static int getNum3(int n) {
         if (n < 1) {
             return 0;
@@ -13,7 +48,7 @@ public class Code02_ZeroLeftOneStringNumber {
         if (n == 1 || n == 2) {
             return n;
         }
-        int[][] base = { { 1, 1 }, { 1, 0 } };
+        int[][] base = {{1, 1}, {1, 0}};
         int[][] res = matrixPower(base, n - 2);
         return 2 * res[0][0] + res[1][0];
     }
@@ -45,5 +80,15 @@ public class Code02_ZeroLeftOneStringNumber {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i != 21; i++) {
+            System.out.println(getNum1(i));
+            System.out.println(getNum2(i));
+            System.out.println(getNum3(i));
+            System.out.println("===================");
+        }
+
     }
 }
