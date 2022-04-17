@@ -2,8 +2,6 @@ package p9sliding_window;
 
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
