@@ -5,7 +5,7 @@ package p15SegmentTree;
  * @author: Flash
  * @create: 2022-04-17 16:34
  **/
-public class Class01_SegmentTree {
+public class Code01_SegmentTree {
 
     public static class SegmentTree {
         private int[] arr;

@@ -10,7 +10,7 @@ import java.util.TreeSet;
  * @author: Flash
  * @create: 2022-04-17 21:29
  **/
-public class Class02_FallingSquares {
+public class Code02_FallingSquares {
 
     public List<Integer> fallingSquares(int[][] positions) {
         HashMap<Integer, Integer> map = index(positions);
