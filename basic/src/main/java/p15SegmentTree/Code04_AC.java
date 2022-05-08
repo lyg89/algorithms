@@ -1,5 +1,6 @@
 package p15SegmentTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,21 +11,21 @@ import java.util.List;
  **/
 public class Code04_AC {
 
-    public class Node{
+    public static class Node {
         public String end;
         public boolean endUse;
         public Node fail;
         public Node[] nexts;
 
-        public Node () {
+        public Node() {
             this.nexts = new Node[26];
         }
     }
 
-    public class ACAutomation {
+    public static class ACAutomation {
         private Node root;
 
-        public ACAutomation(){
+        public ACAutomation() {
             root = new Node();
         }
 
@@ -65,9 +66,45 @@ public class Code04_AC {
             }
         }
 
-        // TODO: need to implements
         public List<String> containWords(String content) {
-            return null;
+            char[] str = content.toCharArray();
+            Node cur = root;
+            Node follow;
+            int index;
+            List<String> ans = new ArrayList<>();
+            for (char c : str) {
+                index = c - 'a';
+                while (cur.nexts[index] == null && cur != root) {
+                    cur = cur.fail;
+                }
+                cur = cur.nexts[index] != null ? cur.nexts[index] : root;
+                follow = cur;
+                while (follow != root) {
+                    if (follow.endUse) {
+                        break;
+                    }
+                    if (follow.end != null) {
+                        ans.add(follow.end);
+                        follow.endUse = true;
+                    }
+                    follow = follow.fail;
+                }
+            }
+            return ans;
+        }
+    }
+
+    public static void main(String[] args) {
+        ACAutomation ac = new ACAutomation();
+        ac.insert("dhe");
+        ac.insert("he");
+        ac.insert("abcdheks");
+        // 设置fail指针
+        ac.buildPoint();
+
+        List<String> contains = ac.containWords("abcdhekskdjfafhasldkflskdjhwqaeruv");
+        for (String word : contains) {
+            System.out.println(word);
         }
     }
 }
